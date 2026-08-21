@@ -11,7 +11,7 @@ load_dotenv()
 # CONFIG
 # -------------------------
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-LLM_MODEL = "llama-3.1-8b-instant"
+LLM_MODEL = "openai/gpt-oss-20b"
 
 
 # -------------------------
@@ -51,7 +51,7 @@ def load_db(path):
 # -------------------------
 def generate_answer(query, db):
 
-    retriever = db.as_retriever(search_kwargs={"k": 4})
+    retriever = db.as_retriever(search_kwargs={"k": 8})
 
     docs = retriever.invoke(query)
 
@@ -69,12 +69,16 @@ def generate_answer(query, db):
     prompt = f"""
 You are an expert Ayurveda physician specializing in Panchakarma.
 
-Use ONLY the provided context.
-Do NOT use outside knowledge.
-Do NOT invent treatments.
+Base your answer on the provided context. The context comes from classical
+Ayurveda texts and may use Sanskrit terminology for symptoms and conditions
+(e.g. Jwara = fever, Kasa = cough, Atisara = diarrhea) — connect the patient's
+plain-language symptoms to these terms where relevant.
+Do NOT invent treatments that are not supported by the context.
 
-If the information is insufficient, say:
-"Insufficient evidence from sources."
+Only say "Insufficient evidence from sources." if the context has nothing
+reasonably relevant to the patient's case, even after considering related or
+partially-matching passages. Prefer giving a best-effort answer with a lower
+confidence level over refusing outright.
 
 Context:
 {context}
@@ -99,8 +103,7 @@ Provide your answer in clear sections:
 # -------------------------
 def answer_general_query(query, db):
     # Step 1: Retrieve top-k relevant documents
-    # Using k=5 for enhanced retrieval and anti-hallucination support
-    docs = db.similarity_search(query, k=5)
+    docs = db.similarity_search(query, k=8)
 
     if not docs:
         return "I don't know based on the available Ayurvedic texts.", []
@@ -112,16 +115,20 @@ def answer_general_query(query, db):
         temperature=0.1
     )
 
-    # Step 2: STRICT grounded prompt
+    # Step 2: Grounded prompt with Sanskrit-terminology awareness
     prompt = f"""
 You are an expert Ayurveda assistant specialized in Panchakarma.
 
-Answer the user's question ONLY using the provided context.
-Do NOT use external knowledge.
-Do NOT guess or hallucinate.
+Answer the user's question using the provided context. The context comes
+from classical Ayurveda texts and may use Sanskrit terminology for symptoms
+and conditions (e.g. Jwara = fever, Kasa = cough, Atisara = diarrhea) —
+connect the question to these terms where relevant.
+Do NOT use external knowledge beyond connecting such terminology.
+Do NOT guess or hallucinate treatments not supported by the context.
 
-If the answer is not present in the context, say:
-"I don't know based on the available Ayurvedic texts."
+Only say "I don't know based on the available Ayurvedic texts." if the
+context has nothing reasonably relevant, even after considering related or
+partially-matching passages. Prefer a best-effort answer over refusing.
 
 Context:
 {context}

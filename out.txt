@@ -1,0 +1,26 @@
+**1. Recommended Panchakarma‑style approach**  
+| Step | What to do | How it is done in a 1‑year‑old | Notes |
+|------|------------|--------------------------------|-------|
+| **a. Oral decoction** | A gentle, Pitta‑pacifying decoction (e.g., Guduchi + Turmeric + Ashwagandha + Licorice) taken in small, frequent doses. | 1–2 ml per dose, 3–4 times a day, mixed with warm water or breast‑milk. | Avoid strong purgatives or emetics; the goal is to cool the body and support the digestive fire (Agni) without stressing the infant’s system. |
+| **b. Light massage** | Mild, warm oil massage (e.g., sesame or coconut oil) of the abdomen and limbs. | Gentle strokes, 5–10 min, 1–2 times a day. | Helps circulate Kapha‑free, Pitta‑calming oils and supports circulation. |
+| **c. Avoid full Virechana** | Full purgation (Virechana) is contraindicated in infants. | – | The infant’s gastrointestinal tract is immature; purgatives can cause dehydration, electrolyte imbalance, and damage the gut lining. |
+
+**2. Clinical rationale**  
+* **Fever (Jwara)** is a classic Pitta symptom – the context lists “Pitta Vyana … pyrexia and pain.”  
+* The patient’s **Prakriti is Vata**, but the acute symptom is Pitta‑dominant; therefore, the therapeutic focus is on cooling Pitta while respecting the Vata constitution.  
+* A mild oral decoction and gentle massage are the safest Panchakarma‑inspired interventions for a 1‑year‑old, providing Pitta‑balancing effects without the risks of full purgation or emesis.  
+
+**3. Contraindications**  
+| Factor | Why it is a contraindication | What to avoid |
+|--------|-----------------------------|---------------|
+| **Age 1 year** | Infant’s digestive and renal systems are not mature; purgatives can cause dehydration, electrolyte imbalance, and gut irritation. | Full Virechana, Vamana, or any aggressive detoxification. |
+| **Vata Prakriti** | Vata is cold, dry, and mobile; aggressive purgation can aggravate Vata, leading to dryness, constipation, or respiratory issues. | Strong emetics or purgatives. |
+| **Presence of fever** | Fever indicates an active Pitta imbalance; aggressive detoxification may worsen the inflammatory response. | Over‑aggressive cleansing. |
+
+**4. Supporting evidence from the context**  
+* The excerpt lists **“Pitta Vyana … pyrexia and pain”** – directly linking fever to Pitta.  
+* It also notes **“Pitta Samana excessive sweating, thirst, burning sensation, fainting, restlessness”** – all Pitta‑related signs that are addressed by cooling therapies.  
+* No specific mention of infant‑appropriate Panchakarma protocols is present; the context only discusses general dosha‑based treatments.  
+
+**5. Confidence level**  
+**Low** – The provided context does not contain detailed infant‑specific Panchakarma protocols or explicit recommendations for a 1‑year‑old with fever. The suggested approach is a best‑effort extrapolation based on general Ayurvedic principles and the documented Pitta‑fever link.

@@ -1,6 +1,5 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from fastapi.middleware.cors import CORSMiddleware
 from rag_pipeline import load_db, generate_answer, answer_general_query
 import os
 from dotenv import load_dotenv
@@ -17,16 +16,6 @@ load_dotenv()
 # -------------------------
 app = FastAPI(title="AyurSutra RAG API")
 
-# -------------------------
-# CORS CONFIG (for React)
-# -------------------------
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Change to frontend URL in production
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 # -------------------------
 # CONSTANTS
@@ -170,5 +159,5 @@ async def general_query(data: GeneralQuery):
 if __name__ == "__main__":
     import uvicorn
     # Use the PORT environment variable provided by Render, default to 8000 for local
-    port = int(os.environ.get("PORT", 8000))
+    port = int(os.environ.get("PORT", 7860))
     uvicorn.run("api:app", host="0.0.0.0", port=port)
